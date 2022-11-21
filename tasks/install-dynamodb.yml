@@ -1,0 +1,19 @@
+---
+- name: Create `DynamoDB` directory
+  file:
+    path: "{{ ansible_env.HOME }}/.local/lib/dynamodb_local_latest"
+    state: directory
+
+- name: Alias dynamodb-local in .bashrc
+  lineinfile:
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    regex: "^alias dynamodb-local.*$"
+    line: alias dynamodb-local="java -Djava.library.path={{ ansible_env.HOME }}/.local/lib/dynamodb_local_latest/DynamoDBLocal_lib -jar {{ ansible_env.HOME }}/.local/lib/dynamodb_local_latest/DynamoDBLocal.jar -sharedDb"
+    create: yes
+
+- name: Download dynamodb_local_latest.tar.gz
+  unarchive:
+    src: https://s3.ap-south-1.amazonaws.com/dynamodb-local-mumbai/dynamodb_local_latest.tar.gz
+    dest: "{{ ansible_env.HOME }}/.local/lib/dynamodb_local_latest/"
+    remote_src: yes
+    creates: "{{ ansible_env.HOME }}/.local/lib/dynamodb_local_latest/DynamoDBLocal.jar"

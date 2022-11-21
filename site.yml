@@ -1,0 +1,73 @@
+---
+- hosts: harvest
+
+  pre_tasks:
+    - name: Install apt packages
+      become: yes
+      apt:
+        state: present
+        name: "{{ item }}"
+      loop: "{{ apt_packages }}"
+
+    - name: Install nvm
+      shell: >
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/{{ nvm_version }}/install.sh | bash
+      args:
+        creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+
+  tasks:
+    - name: Setup ssh keys
+      include_tasks: tasks/setup-ssh-keys.yml
+
+    - name: Install `node.js` using `nvm`
+      include_tasks: tasks/install-nodejs.yml
+      loop: "{{ node_versions }}"
+
+    - name: Install *.deb
+      include_tasks: tasks/install-debian-package.yml
+      loop: "{{ debs }}"
+
+    - name: Install Nerd Fonts
+      include_tasks: tasks/install-font.yml
+      loop: "{{ nerd_fonts }}"
+
+    - name: Install `logex`
+      include_tasks: tasks/install-logex.yml
+
+    - name: Install `lunarvim`
+      include_tasks: tasks/install-lunarvim.yml
+
+    - name: Install `DynamoDB`
+      include_tasks: tasks/install-dynamodb.yml
+
+    - name: Setup gogh color schemes
+      include_tasks: tasks/setup-gogh.yml
+      loop: "{{ color_schemes }}"
+
+    - name: Setup .bashrc for git branches
+      include_tasks: tasks/setup-bashrc.yml
+
+    - name: Setup gpakosz/.tmux
+      include_tasks: tasks/setup-tmux.yml
+
+    - name: Import OpenVPN profiles
+      include_tasks: tasks/import-openvpn-profile.yml
+      loop: "{{ openvpn_profiles }}"
+
+    - name: Install gnome-shell-extensions
+      include_tasks: tasks/install-gnome-shell-extension.yml
+      loop: "{{ gnome_shell_extensions }}"
+
+    - name: Install npm packages
+      include_tasks: tasks/install-npm-package.yml
+      with_nested:
+        - "{{ node_versions }}"
+        - "{{ npm_packages }}"
+
+    - include_vars: group_vars/github_repos.yml
+    - name: Setup github projects
+      git:
+        repo: "{{ item.repo }}"
+        dest: "{{ ansible_env.HOME }}/{{ item.repo|splitext|first|split(':')|last }}"
+        update: false
+      loop: "{{ github_repos }}"

@@ -1,0 +1,7 @@
+---
+- name: Install `logex`
+  become: yes
+  shell: >
+    curl -L https://raw.githubusercontent.com/kritish-dhaubanjar/logex/main/logex.sh -o /usr/local/bin/logex && sudo chmod +x /usr/local/bin/logex
+  args:
+    creates: /usr/local/bin/logex

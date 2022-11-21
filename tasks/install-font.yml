@@ -1,0 +1,18 @@
+---
+- block:
+    - name: Create `fonts` directory
+      file:
+        path: "{{ ansible_env.HOME }}/.local/share/fonts"
+        state: directory
+
+    - name: Download JetBrainsMono Nerd Font
+      unarchive:
+        src: "{{ item.url }}"
+        dest: "{{ ansible_env.HOME }}/.local/share/fonts/"
+        remote_src: yes
+        creates: "{{ ansible_env.HOME }}/.local/share/fonts/{{ item.sample }}"
+
+    - name: Refresh fonts cache
+      shell: fc-cache -f -v
+      args:
+        creates: "{{ ansible_env.HOME }}/.local/share/fonts/{{ item.sample }}"

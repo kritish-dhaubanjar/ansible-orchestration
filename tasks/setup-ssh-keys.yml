@@ -1,0 +1,34 @@
+---
+- name: Create ~/.ssh
+  file:
+    path: "{{ ansible_env.HOME }}/.ssh"
+    state: directory
+    mode: 0700
+
+- name: Copy public keys to ~/.ssh
+  copy:
+    src: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/"
+    mode: 0644
+  with_fileglob: .ssh/*.pub
+
+- name: Find private keys
+  find:
+    paths: files/.ssh
+    patterns: ".*[^pub]$"
+    use_regex: yes
+    exclude: config
+  register: private_keys
+
+- name: Copy private keys to ~/.ssh
+  copy:
+    src: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/"
+    mode: 0600
+  with_items: "{{ private_keys.files | map(attribute='path') }}"
+
+- name: Copy config to ~/.ssh
+  copy:
+    src: files/.ssh/config
+    dest: "{{ ansible_env.HOME }}/.ssh/"
+    mode: 0644

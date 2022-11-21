@@ -1,0 +1,8 @@
+---
+- name: "Install gogh `{{ item }}` color scheme"
+  shell: |
+    curl -s https://raw.githubusercontent.com/Gogh-Co/Gogh/master/themes/{{ item }}.sh | bash
+  environment:
+    TERMINAL: gnome-terminal
+  register: gogh
+  changed_when: "'Skipping' not in gogh.stdout"

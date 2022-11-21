@@ -1,0 +1,6 @@
+---
+- name: "Install `node.js {{ item }}`"
+  shell: >
+    . {{ ansible_env.HOME }}/.nvm/nvm.sh && nvm install {{ item }}
+  args:
+    creates: "{{ ansible_env.HOME }}/.nvm/versions/node/{{ item }}"

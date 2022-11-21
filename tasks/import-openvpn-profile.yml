@@ -1,0 +1,28 @@
+---
+- name: Find all connections
+  shell: nmcli connection show
+  changed_when: False
+  register: connections
+
+- name: Import {{ item.profile }}
+  block:
+    - name: Decrypt {{ item.profile }}
+      copy:
+        src: "{{ item.profile }}"
+        dest: /tmp/
+
+    - name: Import {{ item.profile }} profile
+      shell: |
+        # nmcli connection import type openvpn file {{ item.profile }}
+        nmcli connection import type openvpn file /tmp/{{ item.profile|basename }}
+
+        {% for route in item.routes %}
+          nmcli connection modify {{ item.profile|basename|split('.')|first }} +ipv4.routes "{{ route }}/0 {{route}}"
+        {% endfor %}
+
+    - name: Delete {{ item.profile }}
+      file:
+        path: "/tmp/{{ item.profile|basename }}"
+        state: absent
+
+  when: item.profile|basename|split('.')|first not in connections.stdout

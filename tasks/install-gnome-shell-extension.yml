@@ -1,0 +1,13 @@
+---
+- block:
+    - name: Create {{ item.name }} directory
+      file:
+        path: "{{ ansible_env.HOME }}/.local/share/gnome-shell/extensions/{{ item.name }}"
+        state: directory
+
+    - name: Installing {{ item.name }}
+      unarchive:
+        src: "{{ item.url }}"
+        dest: "{{ ansible_env.HOME }}/.local/share/gnome-shell/extensions/{{ item.name }}"
+        remote_src: yes
+        creates: "{{ ansible_env.HOME }}/.local/share/gnome-shell/extensions/{{ item.name }}/metadata.json"

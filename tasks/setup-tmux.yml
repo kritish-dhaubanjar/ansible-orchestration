@@ -1,0 +1,12 @@
+---
+- name: Download gpakosz/.tmux
+  git:
+    repo: https://github.com/gpakosz/.tmux.git
+    dest: "{{ ansible_env.HOME }}/.tmux"
+
+- name: Install gpakosz/.tmux
+  shell: |
+    ln -s -f {{ ansible_env.HOME }}/.tmux/.tmux.conf {{ ansible_env.HOME }}/.tmux.conf
+    cp {{ ansible_env.HOME }}/.tmux/.tmux.conf.local {{ ansible_env.HOME }}/.tmux.conf.local
+  args:
+    creates: "{{ ansible_env.HOME }}/.tmux.conf.local"

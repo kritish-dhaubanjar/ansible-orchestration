@@ -1,0 +1,84 @@
+---
+nvm_version: v0.39.2
+lunarvim_version: release-1.2/neovim-0.8
+
+apt_packages:
+  - git
+  - vlc
+  - gimp
+  - htop
+  - tmux
+  - tree
+  - cargo
+  - xclip
+  - firefox
+  - remmina
+  - ripgrep
+  - obs-studio
+  - gnome-tweaks
+  - redis-server
+  - openjdk-19-jdk
+  - chromium-browser
+  - gnome-shell-extensions
+
+debs:
+  - { name: "zoom", url: "https://cdn.zoom.us/prod/5.12.6.173/zoom_amd64.deb" }
+  - {
+      name: "viber",
+      url: "https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb",
+    }
+  - {
+      name: "discord",
+      url: "https://discord.com/api/download?platform=linux&format=deb",
+    }
+  - {
+      name: "neovim",
+      url: "https://github.com/neovim/neovim/releases/download/v0.8.1/nvim-linux64.deb",
+    }
+  - {
+      name: "ipscan",
+      url: "https://github.com/angryip/ipscan/releases/download/3.8.2/ipscan_3.8.2_amd64.deb",
+    }
+  - {
+      name: "slack-desktop",
+      url: "https://downloads.slack-edge.com/releases/linux/4.28.184/prod/x64/slack-desktop-4.28.184-amd64.deb",
+    }
+
+gnome_shell_extensions:
+  - {
+      name: "nepalidate@kritishdhaubanjar.gmail.com",
+      url: "https://extensions.gnome.org/extension-data/nepalidatekritishdhaubanjar.gmail.com.v3.shell-extension.zip",
+    }
+  - {
+      name: "sound-output-device-chooser@kgshank.net",
+      url: "https://extensions.gnome.org/extension-data/sound-output-device-chooserkgshank.net.v43.shell-extension.zip",
+    }
+
+color_schemes:
+  - gogh
+  - grape
+  - atom
+
+node_versions:
+  - v16.17.1
+  - v16.15.1
+
+npm_packages:
+  - yarn
+  - eslint
+  - prettier
+  - dynamodb-dashboard
+
+nerd_fonts:
+  - {
+      name: "JetBrainsMono Nerd Font",
+      sample: "JetBrains Mono Regular Nerd Font Complete.ttf",
+      url: "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/JetBrainsMono.zip",
+    }
+
+openvpn_profiles:
+  - trayt:
+    profile: "{{ playbook_dir }}/files/openvpn_profiles/trayt.ovpn"
+    routes:
+      - 10.1.0.222
+      - 54.188.63.70

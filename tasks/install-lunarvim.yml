@@ -1,0 +1,20 @@
+---
+- name: Install `lunarvim`
+  shell: curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh | bash -s -- -y
+  args:
+    creates: "{{ ansible_env.HOME }}/.local/bin/lvim"
+  environment:
+    LV_BRANCH: "{{ lunarvim_version }}"
+
+- name: Set default EDITOR
+  lineinfile:
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    regex: "^export EDITOR.*$"
+    line: export EDITOR=lvim
+    create: yes
+
+- name: Setup plugins & config for lunarvim
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.config/lvim/config.lua"
+    block: "{{ lookup('ansible.builtin.file', 'lvim_plugins.lua')}}"
+    marker: "-- {mark} ANSIBLE MANAGED BLOCK"

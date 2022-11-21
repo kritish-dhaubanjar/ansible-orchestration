@@ -1,0 +1,12 @@
+---
+- name: Copy files/git_bashrc
+  copy:
+    src: .git_bashrc
+    dest: "{{ ansible_env.HOME }}/.git_bashrc"
+
+- name: Source .git_bashrc in .bashrc
+  lineinfile:
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    regex: "^source {{ ansible_env.HOME }}/.git_bashrc.*$"
+    line: "source {{ ansible_env.HOME }}/.git_bashrc"
+    create: yes
