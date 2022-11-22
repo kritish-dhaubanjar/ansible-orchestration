@@ -18,6 +18,8 @@
     patterns: ".*[^pub]$"
     use_regex: yes
     exclude: config
+  delegate_to: localhost
+  run_once: yes
   register: private_keys
 
 - name: Copy private keys to ~/.ssh
