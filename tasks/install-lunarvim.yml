@@ -1,7 +1,9 @@
 ---
 - name: Install `lunarvim`
-  shell: curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh | bash -s -- -y
+  shell: |
+    source {{ ansible_env.HOME }}/.bashrc && curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh | bash -s -- -y
   args:
+    executable: /bin/bash
     creates: "{{ ansible_env.HOME }}/.local/bin/lvim"
   environment:
     LV_BRANCH: "{{ lunarvim_version }}"

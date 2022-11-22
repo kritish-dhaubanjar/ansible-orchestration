@@ -15,6 +15,7 @@ apt_packages:
   - remmina
   - ripgrep
   - obs-studio
+  - python3-pip
   - gnome-tweaks
   - redis-server
   - openjdk-19-jdk
