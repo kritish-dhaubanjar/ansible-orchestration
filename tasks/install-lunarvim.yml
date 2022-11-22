@@ -20,3 +20,10 @@
     path: "{{ ansible_env.HOME }}/.config/lvim/config.lua"
     block: "{{ lookup('ansible.builtin.file', 'lvim_plugins.lua')}}"
     marker: "-- {mark} ANSIBLE MANAGED BLOCK"
+
+- name: Include ~/.local/bin to PATH
+  lineinfile:
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    regex: '^export PATH="~/.local/bin:$PATH".*$'
+    line: export PATH="~/.local/bin:$PATH"
+    create: yes
