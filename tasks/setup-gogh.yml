@@ -1,6 +1,10 @@
 ---
 - name: "Install gogh `{{ item }}` color scheme"
+  # https://askubuntu.com/questions/1290059/how-can-i-change-gnome-terminal-profile-name-in-command-line-from-unnamed-to
   shell: |
+    id=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'")
+    gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$id/ visible-name 'Default'
+
     curl -s https://raw.githubusercontent.com/Gogh-Co/Gogh/master/themes/{{ item }}.sh | bash
   environment:
     TERMINAL: gnome-terminal
