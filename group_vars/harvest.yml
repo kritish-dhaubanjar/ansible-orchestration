@@ -54,6 +54,10 @@ gnome_shell_extensions:
       name: "sound-output-device-chooser@kgshank.net",
       url: "https://extensions.gnome.org/extension-data/sound-output-device-chooserkgshank.net.v43.shell-extension.zip",
     }
+  - {
+      name: "user-theme@gnome-shell-extensions.gcampax.github.com",
+      url: "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v50.shell-extension.zip",
+    }
 
 color_schemes:
   - gogh
