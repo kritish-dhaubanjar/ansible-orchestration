@@ -12,14 +12,16 @@
         dest: /tmp/
 
     - name: Import {{ item.profile }} profile
+      become: yes
       shell: |
-        # nmcli connection import type openvpn file {{ item.profile }}
         nmcli connection import type openvpn file /tmp/{{ item.profile|basename }}
         nmcli connection modify {{ item.profile|basename|split('.')|first }} ipv4.never-default true
 
         {% for route in item.routes %}
           nmcli connection modify {{ item.profile|basename|split('.')|first }} +ipv4.routes "{{ route }}/24 {{route}}"
         {% endfor %}
+      args:
+        executable: /bin/bash
 
     - name: Delete {{ item.profile }}
       file:
