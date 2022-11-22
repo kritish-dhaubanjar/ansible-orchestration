@@ -1,6 +1,6 @@
 ---
 - name: "Query package: {{ item.name }}"
-  command: "dpkg-query -W {{ item.name }}"
+  command: "dpkg-query -s {{ item.name }}"
   register: query_package
   failed_when: false
   changed_when: query_package.rc == 1
