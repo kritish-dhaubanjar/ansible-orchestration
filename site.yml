@@ -70,4 +70,6 @@
         repo: "{{ item.repo }}"
         dest: "{{ ansible_env.HOME }}/{{ item.repo|splitext|first|split(':')|last }}"
         update: false
+        accept_hostkey: yes
+        key_file: "{{ ansible_env.HOME }}/.ssh/id_rsa"
       loop: "{{ github_repos }}"
