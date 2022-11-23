@@ -54,3 +54,15 @@ lvim.plugins = {
 vim.opt.mouse = ""
 vim.opt.updatetime = 50
 vim.opt.relativenumber = true
+
+vim.opt.fillchars = {
+  vert = "▕", -- alternatives │
+  fold = " ",
+  eob = " ", -- suppress ~ at EndOfBuffer
+  diff = "╱", -- alternatives = ⣿ ░ ─
+  msgsep = "‾",
+  foldopen = "▾",
+  foldsep = "│",
+  foldclose = "▸",
+}
+
