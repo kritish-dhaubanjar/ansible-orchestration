@@ -11,10 +11,12 @@ apt_packages:
   - tree
   - cargo
   - xclip
+  - reaver
   - firefox
   - remmina
   - ripgrep
   - obs-studio
+  - aircrack-ng
   - python3-pip
   - gnome-tweaks
   - redis-server
