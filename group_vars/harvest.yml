@@ -15,6 +15,7 @@ apt_packages:
   - firefox
   - remmina
   - ripgrep
+  - variety
   - obs-studio
   - aircrack-ng
   - python3-pip
