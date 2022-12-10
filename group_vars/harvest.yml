@@ -46,6 +46,10 @@ debs:
       name: "slack-desktop",
       url: "https://downloads.slack-edge.com/releases/linux/4.28.184/prod/x64/slack-desktop-4.28.184-amd64.deb",
     }
+  - {
+      name: "insomnia",
+      url: "https://github.com/Kong/insomnia/releases/download/core%402022.6.0/Insomnia.Core-2022.6.0.deb",
+    }
 
 gnome_shell_extensions:
   - {
