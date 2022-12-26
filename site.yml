@@ -61,6 +61,9 @@
       include_tasks: tasks/install-gnome-shell-extension.yml
       loop: "{{ gnome_shell_extensions }}"
 
+    - name: Install AWS CLI
+      include_tasks: tasks/install-aws-cli.yml
+
     - name: Install npm packages
       include_tasks: tasks/install-npm-package.yml
       with_nested:
