@@ -20,8 +20,10 @@ ansible-playbook -i inventory site.yml --ask-become-pass --ask-vault-password
 - setup-gogh.yml
 - setup-ssh-keys.yml
 - setup-tmux.yml
+- install-aws-cli.yml
 
 #### Instructions
+- [Install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-and-upgrading-ansible)
 - [OpenSSH Server](https://ubuntu.com/server/docs/service-openssh)
 
 #### Demo
