@@ -7,20 +7,20 @@ ansible-playbook -i inventory site.yml --ask-become-pass --ask-vault-password
 ```
 
 #### Tasks
-- import-openvpn-profile.yml
-- install-debian-package.yml
-- install-dynamodb.yml
-- install-font.yml
-- install-gnome-shell-extension.yml
-- install-logex.yml
-- install-lunarvim.yml
-- install-nodejs.yml
-- install-npm-package.yml
-- setup-bashrc.yml
-- setup-gogh.yml
-- setup-ssh-keys.yml
-- setup-tmux.yml
-- install-aws-cli.yml
+- [X] openvpn
+- [X] nerd fonts
+- [X] debs (eg: discord)
+- [X] dynamodb
+- [X] gnome shell extensions
+- [X] logex
+- [X] lunarvim
+- [X] node.js
+- [X] npm packages (eg: yarn)
+- [X] .bashrc
+- [X] ssh
+- [X] tmux
+- [X] aws cli
+- [X] gogh color schemes
 
 #### Instructions
 - [Install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-and-upgrading-ansible)
