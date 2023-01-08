@@ -1,5 +1,3 @@
--- https://www.lunarvim.org/docs/plugins/extra-plugins 
-
 lvim.plugins = {
   -- trouble.nvim
   {
@@ -23,14 +21,17 @@ lvim.plugins = {
   -- vim-surround
   {
     "tpope/vim-surround",
-    
+
     -- make sure to change the value of `timeoutlen` if it's not triggering correctly, see https://github.com/tpope/vim-surround/issues/117
     -- setup = function()
-      --  vim.o.timeoutlen = 500
+    --  vim.o.timeoutlen = 500
     -- end
   },
-    {
-    'nvim-orgmode/orgmode',
+  {
+    "nvim-treesitter/nvim-treesitter"
+  },
+  {
+    "nvim-orgmode/orgmode",
     require('orgmode').setup_ts_grammar(),
 
     -- Treesitter configuration
