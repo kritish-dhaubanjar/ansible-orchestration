@@ -52,6 +52,14 @@ debs:
       url: "https://github.com/Kong/insomnia/releases/download/core%402022.6.0/Insomnia.Core-2022.6.0.deb",
     }
 
+elk_stack:
+  elasticsearch:
+    version: 8.6.0
+    url: "{{ 'https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.6.0-linux-x86_64.tar.gz' if ansible_architecture == 'x86_64' else 'https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.6.0-linux-aarch64.tar.gz' }}"
+  kibana:
+    version: 8.6.0
+    url: "{{ 'https://artifacts.elastic.co/downloads/kibana/kibana-8.6.0-linux-x86_64.tar.gz' if ansible_architecture == 'x86_64' else 'https://artifacts.elastic.co/downloads/kibana/kibana-8.6.0-linux-aarch64.tar.gz' }}"
+
 gnome_shell_extensions:
   - {
       name: "nepalidate@kritishdhaubanjar.gmail.com",

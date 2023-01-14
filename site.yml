@@ -1,5 +1,6 @@
 ---
 - hosts: harvest
+  gather_facts: true
 
   pre_tasks:
     - name: Install apt packages
@@ -63,6 +64,9 @@
 
     - name: Install AWS CLI
       include_tasks: tasks/install-aws-cli.yml
+
+    - name: Setup ELK Stack
+      include_tasks: tasks/setup-elk-stack.yml
 
     - name: Install npm packages
       include_tasks: tasks/install-npm-package.yml

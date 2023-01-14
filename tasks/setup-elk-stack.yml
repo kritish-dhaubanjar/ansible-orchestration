@@ -1,0 +1,32 @@
+---
+- name: Download elasticsearch-{{ elk_stack.elasticsearch.version }}
+  become: yes
+  unarchive:
+    remote_src: yes
+    dest: "/opt/"
+    owner: "{{ ansible_env.USER }}"
+    src: "{{ elk_stack.elasticsearch.url }}"
+    creates: "/opt/elasticsearch-{{ elk_stack.elasticsearch.version }}/bin/elasticsearch"
+
+- name: Download kibana-{{ elk_stack.kibana.version }}
+  become: yes
+  unarchive:
+    remote_src: yes
+    dest: "/opt/"
+    owner: "{{ ansible_env.USER }}"
+    src: "{{ elk_stack.kibana.url }}"
+    creates: "/opt/kibana-{{ elk_stack.kibana.version }}/bin/kibana"
+
+- name: Setup /usr/local/bin/elasticsearch
+  become: yes
+  shell: |
+    ln -s /opt/elasticsearch-{{ elk_stack.elasticsearch.version }}/bin/* /usr/local/bin/
+  args:
+    creates: "/usr/local/bin/elasticsearch"
+
+- name: Setup /usr/local/bin/kibana
+  become: yes
+  shell: |
+    ln -s /opt/kibana-{{ elk_stack.kibana.version }}/bin/kibana /usr/local/bin/
+  args:
+    creates: "/usr/local/bin/kibana"
