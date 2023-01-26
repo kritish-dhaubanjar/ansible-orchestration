@@ -71,3 +71,4 @@ vim.opt.fillchars = {
 }
 
 lvim.transparent_window = true
+lvim.builtin.terminal.open_mapping = "<c-t>"
