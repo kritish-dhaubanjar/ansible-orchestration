@@ -69,3 +69,5 @@ vim.opt.fillchars = {
   foldsep = "│",
   foldclose = "▸",
 }
+
+lvim.transparent_window = true
