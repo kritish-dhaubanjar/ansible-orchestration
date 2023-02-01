@@ -14,6 +14,7 @@ ansible-playbook -i inventory site.yml --ask-become-pass --ask-vault-password
 - [X] gnome shell extensions
 - [X] logex
 - [X] lunarvim
+- [X] lazygit
 - [X] node.js
 - [X] npm packages (eg: yarn)
 - [X] .bashrc
@@ -21,6 +22,8 @@ ansible-playbook -i inventory site.yml --ask-become-pass --ask-vault-password
 - [X] tmux
 - [X] aws cli
 - [X] gogh color schemes
+- [X] docker
+- [X] docker-desktop
 
 #### Instructions
 - [Install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-and-upgrading-ansible)
