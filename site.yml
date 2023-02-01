@@ -38,6 +38,9 @@
     - name: Install `lunarvim`
       include_tasks: tasks/install-lunarvim.yml
 
+    - name: Install `lazygit`
+      include_tasks: tasks/install-lazygit.yml
+
     - name: Install `DynamoDB`
       include_tasks: tasks/install-dynamodb.yml
 
