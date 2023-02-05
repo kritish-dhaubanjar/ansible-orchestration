@@ -50,6 +50,9 @@
     - name: Install `docker`
       include_tasks: tasks/install-docker.yml
 
+    - name: Setup `alacritty`
+      include_tasks: tasks/setup-alacritty.yml
+
     - name: Setup gogh color schemes
       include_tasks: tasks/setup-gogh.yml
       loop: "{{ color_schemes }}"

@@ -16,6 +16,7 @@ apt_packages:
   - remmina
   - ripgrep
   - variety
+  - alacritty
   - obs-studio
   - aircrack-ng
   - python3-pip
