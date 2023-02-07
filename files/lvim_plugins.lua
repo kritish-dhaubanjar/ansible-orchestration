@@ -1,3 +1,7 @@
+-- add your own keymapping
+lvim.keys.normal_mode["<M-l>"] = ":BufferLineMoveNext<CR>"
+lvim.keys.normal_mode["<M-h>"] = ":BufferLineMovePrev<CR>"
+
 lvim.plugins = {
   -- trouble.nvim
   {
