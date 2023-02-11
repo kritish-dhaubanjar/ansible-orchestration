@@ -31,6 +31,13 @@ font:
     style: Bold Italic
   draw_bold_text_with_bright_colors: true
 
+shell:
+  program: /bin/bash
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
+
 colors:
   # https://github.com/zatchheems/tokyo-night-alacritty-theme
   primary:
