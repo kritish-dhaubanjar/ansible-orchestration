@@ -38,6 +38,9 @@ shell:
     - -c
     - "tmux attach || tmux"
 
+env:
+  TERM: xterm-256color
+
 colors:
   # https://github.com/zatchheems/tokyo-night-alacritty-theme
   primary:
