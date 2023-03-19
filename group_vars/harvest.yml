@@ -1,6 +1,5 @@
 ---
 nvm_version: v0.39.2
-lunarvim_version: release-1.2/neovim-0.8
 
 apt_packages:
   - git

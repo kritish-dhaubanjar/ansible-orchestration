@@ -5,8 +5,6 @@
   args:
     executable: /bin/bash
     creates: "{{ ansible_env.HOME }}/.local/bin/lvim"
-  environment:
-    LV_BRANCH: "{{ lunarvim_version }}"
 
 - name: Set default EDITOR
   lineinfile:
