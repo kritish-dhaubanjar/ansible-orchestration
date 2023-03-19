@@ -8,6 +8,7 @@ An orchestration of development environment setup (Pop!_os)
 #### Usage
 ```shell
 git clone https://github.com/kritish-dhaubanjar/ansible-orchestration.git
+
 ansible-playbook -i inventory site.yml --ask-become-pass --ask-vault-password
 ```
 
