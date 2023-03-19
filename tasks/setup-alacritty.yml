@@ -2,6 +2,4 @@
 - name: Copy .alacritty.yml as ~/.alacritty.yml
   copy:
     src: files/.alacritty.yml
-    dest: "{{ ansible_env.HOME }}/"
-  args:
-    creates: "{{ ansible_env.HOME }}/.alacritty.yml"
+    dest: "{{ ansible_env.HOME }}/.alacritty.yml"
