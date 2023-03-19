@@ -53,10 +53,6 @@
     - name: Setup `alacritty`
       include_tasks: tasks/setup-alacritty.yml
 
-    - name: Setup gogh color schemes
-      include_tasks: tasks/setup-gogh.yml
-      loop: "{{ color_schemes }}"
-
     - name: Setup .bashrc for git branches
       include_tasks: tasks/setup-bashrc.yml
 
