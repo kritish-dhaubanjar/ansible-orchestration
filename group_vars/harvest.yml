@@ -41,11 +41,11 @@ debs:
     }
   - {
       name: "ipscan",
-      url: "https://github.com/angryip/ipscan/releases/download/3.8.2/ipscan_3.8.2_amd64.deb",
+      url: "https://github.com/angryip/ipscan/releases/download/3.9.1/ipscan_3.9.1_amd64.deb",
     }
   - {
       name: "slack-desktop",
-      url: "https://downloads.slack-edge.com/releases/linux/4.28.184/prod/x64/slack-desktop-4.28.184-amd64.deb",
+      url: "https://downloads.slack-edge.com/releases/linux/4.32.127/prod/x64/slack-desktop-4.32.127-amd64.deb",
     }
   - {
       name: "insomnia",
