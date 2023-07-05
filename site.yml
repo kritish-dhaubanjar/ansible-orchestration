@@ -24,6 +24,9 @@
       include_tasks: tasks/install-nodejs.yml
       loop: "{{ node_versions }}"
 
+    - name: Install `docker`
+      include_tasks: tasks/install-docker.yml
+
     - name: Install *.deb
       include_tasks: tasks/install-debian-package.yml
       loop: "{{ debs }}"
@@ -46,9 +49,6 @@
 
     - name: Install `DynamoDB`
       include_tasks: tasks/install-dynamodb.yml
-
-    - name: Install `docker`
-      include_tasks: tasks/install-docker.yml
 
     - name: Setup `alacritty`
       include_tasks: tasks/setup-alacritty.yml
