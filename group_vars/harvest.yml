@@ -26,7 +26,7 @@ apt_packages:
   - gnome-shell-extensions
 
 debs:
-  - { name: "zoom", url: "https://cdn.zoom.us/prod/5.12.6.173/zoom_amd64.deb" }
+  - { name: "zoom", url: "https://cdn.zoom.us/prod/5.15.2.4260/zoom_amd64.deb" }
   - {
       name: "viber",
       url: "https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb",
