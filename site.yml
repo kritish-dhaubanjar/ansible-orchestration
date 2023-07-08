@@ -38,6 +38,9 @@
     - name: Install `logex`
       include_tasks: tasks/install-logex.yml
 
+    - name: Install `smart-commit`
+      include_tasks: tasks/install-smart-commit.yml
+
     - name: Install `lunarvim`
       include_tasks: tasks/install-lunarvim.yml
 

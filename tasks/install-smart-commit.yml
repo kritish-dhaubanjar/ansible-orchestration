@@ -1,0 +1,7 @@
+---
+- name: Install `smart-commit`
+  become: yes
+  shell: >
+    curl https://raw.githubusercontent.com/sbimochan/smart-commit/master/commit -o /usr/local/bin/commit && sudo chmod +x /usr/local/bin/commit
+  args:
+    creates: /usr/local/bin/commit
