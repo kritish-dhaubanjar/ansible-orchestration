@@ -131,3 +131,19 @@ vim.opt.fillchars = {
 
 lvim.transparent_window = true
 lvim.builtin.terminal.open_mapping = "<c-t>"
+
+lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
+
+lvim.builtin.telescope.defaults.layout_config = {
+  horizontal = {
+    prompt_position = "top",
+    preview_width = 0.6,
+    results_width = 0.8,
+  },
+  vertical = {
+    mirror = false,
+  },
+  width = 0.80,
+  height = 0.80,
+  preview_cutoff = 120,
+}
